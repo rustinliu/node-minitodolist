@@ -12,5 +12,13 @@
     "dependencies": {
         "commander": "3.0.2",
         "inquirer": "^8.2.0"
+    },
+    "devDependencies": {
+        "@types/jest": "^27.4.0",
+        "@types/node": "^17.0.10",
+        "jest": "^27.4.7"
+    },
+    "scripts": {
+        "test": "jest"
     }
 }
