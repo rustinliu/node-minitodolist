@@ -1,5 +1,5 @@
-const db = require("./db.js");
-const inquirer = require("inquirer");
+const db = require('./db.js');
+const inquirer = require('inquirer');
 
 module.exports.add = async () => {
     //读取之前任务
@@ -17,20 +17,20 @@ module.exports.clear = async () => {
 function printTasks(list) {
     inquirer
         .prompt({
-            type: "list",
-            name: "index",
-            message: "请选择你想操作的任务?",
+            type: 'list',
+            name: 'index',
+            message: '请选择你想操作的任务?',
             choices: [
-                { name: "退出", value: "-1" },
+                { name: '退出', value: '-1' },
                 ...list.map((task, index) => {
                     return {
-                        name: `${task.done ? "[x]" : "[_]"} ${index + 1}-${
+                        name: `${task.done ? '[x]' : '[_]'} ${index + 1}-${
                             task.title
                         }`,
                         value: index.toString(),
                     };
                 }),
-                { name: "+ 创建任务", value: "-2" },
+                { name: '+ 创建任务', value: '-2' },
             ],
         })
         .then((answers) => {
@@ -54,9 +54,9 @@ function markAsUndone(list, index) {
 function updateTitle(list, index) {
     inquirer
         .prompt({
-            type: "input",
-            name: "title",
-            message: "新的标题",
+            type: 'input',
+            name: 'title',
+            message: '新的标题',
             default: list[index].title,
         })
         .then((answers) => {
@@ -77,15 +77,15 @@ function askForAction(list, index) {
     };
     inquirer
         .prompt({
-            type: "list",
-            name: "action",
-            message: "请选择操作",
+            type: 'list',
+            name: 'action',
+            message: '请选择操作',
             choices: [
-                { name: "退出", value: "quit" },
-                { name: "已完成", value: "markAsDone" },
-                { name: "未完成", value: "markAsUndone" },
-                { name: "改标题", value: "updateTitle" },
-                { name: "删除", value: "remove" },
+                { name: '退出', value: 'quit' },
+                { name: '已完成', value: 'markAsDone' },
+                { name: '未完成', value: 'markAsUndone' },
+                { name: '改标题', value: 'updateTitle' },
+                { name: '删除', value: 'remove' },
             ],
         })
         .then((answers2) => {
@@ -97,9 +97,9 @@ function askForAction(list, index) {
 function askForCreateTask(list) {
     inquirer
         .prompt({
-            type: "input",
-            name: "title",
-            message: "输入任务标题",
+            type: 'input',
+            name: 'title',
+            message: '输入任务标题',
         })
         .then((answers) => {
             list.push({
